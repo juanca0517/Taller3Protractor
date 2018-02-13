@@ -28,8 +28,27 @@ describe('Tour of heroes, heroes page', () => {
 
   it('should add a new hero', () => {
     const currentHeroes = page.getAllHeroes().count();
-    page.enterNewHeroInInput('My new Hero');
+    page.enterNewHeroInInput('Juan');
     expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n + 1));
   });
+
+  it('buscar Heroe',() => {
+  page.findHeroe('Narco');
+  })
+
+  it('eliminar Heroe',() =>{
+  page.deleteHero();
+  })
+
+  it('editar Heroe', ()=>{
+  page.editHero('Editado')})
+
+  it('nevagar Heroe desde la busqueda',() => {
+  page.navHeroeFromSearch('Tornado');
+  })
+
+  it('nevegar heroe desde la lista de heroes', () =>{
+  page.navHeroeFromList();
+  })
 
 });

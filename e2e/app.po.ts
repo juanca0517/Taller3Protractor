@@ -20,5 +20,55 @@ export class TourOfHeroesPage {
   enterNewHeroInInput(newHero: string) {
     element(by.tagName('input')).sendKeys(newHero);
     element(by.buttonText('Add')).click();
+    browser.sleep(5000);
   }
+
+  findHeroe(hero: string){
+  element(by.linkText('Dashboard')).click();
+  element(by.tagName('input')).sendKeys(hero);
+  element(by.tagName('div[class="search-result"]')).click();
+  browser.sleep(5000);
+  element(by.buttonText('Back')).click();
+  }
+
+  deleteHero(){
+  element(by.linkText('Heroes')).click();
+  element(by.tagName('span')).click();
+  element(by.buttonText('x')).click();
+  browser.sleep(5000);
+  element(by.linkText('Dashboard')).click();
+  }
+
+  editHero(text: string){
+  element(by.linkText('Heroes')).click();
+  element(by.tagName('span')).click();
+  element(by.buttonText('View Details')).click();
+  browser.sleep(2000);
+  var input = element(by.tagName('input'));
+  input.clear();
+  input.sendKeys(text);
+  browser.sleep(3000);
+  element(by.buttonText('Save')).click();
+  browser.sleep(3000);
+
+
+
+  }
+
+  navHeroeFromSearch(hero: string){
+  element(by.linkText('Dashboard')).click();
+  element(by.tagName('input')).sendKeys(hero);
+  element(by.tagName('div[class="search-result"]')).click();
+  browser.sleep(5000);
+  element(by.buttonText('Back')).click();
+  }
+
+  navHeroeFromList(){
+  element(by.linkText('Heroes')).click();
+  element(by.tagName('span')).click();
+  element(by.buttonText('View Details')).click();
+  browser.sleep(5000);
+  element(by.linkText('Dashboard')).click();
+  }
+
 }
